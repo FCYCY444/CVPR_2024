@@ -34,3 +34,7 @@ Source code snapshots were shallow-cloned, no upstream code was executed.
 - Imported: AllSpark from https://github.com/xmed-lab/AllSpark.git
 - Imported: InSeg from https://github.com/why19991/InSeg.git
 - Imported: DDFP from https://github.com/Gavinwxy/DDFP.git
+- Imported: CutLER from https://github.com/facebookresearch/CutLER.git
+- Imported: EfficientSAM from https://github.com/yformer/EfficientSAM.git
+- Imported: MVANet from https://github.com/qianyu-dlut/MVANet.git
+- Imported: GraCo from https://github.com/zhao-yian/GraCo.git
