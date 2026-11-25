@@ -38,3 +38,11 @@ Source code snapshots were shallow-cloned, no upstream code was executed.
 - Imported: EfficientSAM from https://github.com/yformer/EfficientSAM.git
 - Imported: MVANet from https://github.com/qianyu-dlut/MVANet.git
 - Imported: GraCo from https://github.com/zhao-yian/GraCo.git
+- Imported: LAKE-RED from https://github.com/PanchengZhao/LAKE-RED.git
+- Imported: IFA from https://github.com/niejiahao1998/IFA.git
+
+Excluded from source mirroring: 23 repositories without a verified redistribution license, plus EMCAD (UT Austin restrictions) and SAS-Det (NEC no-redistribution terms). See projects.csv.
+
+License notes: RADIO is NVIDIA non-commercial research/evaluation only; CrossKD is CC BY-NC 4.0; CutLER is CC BY-NC-SA 4.0; mavrec-code is CC BY 4.0.
+
+Git LFS objects, git submodules, external weights, and omitted oversized files may not be included.
