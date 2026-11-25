@@ -10,3 +10,7 @@ Source code snapshots were shallow-cloned, no upstream code was executed.
 - Imported: mavrec-code from https://github.com/MAVREC/mavrec-code.git
 - Imported: InstaGen from https://github.com/fcjian/InstaGen.git
 - Imported: WildlifeMapper from https://github.com/UCSB-VRL/WildlifeMapper.git
+- Imported: PointOBB from https://github.com/VisionXLab/PointOBB.git
+- Imported: RADIO from https://github.com/NVlabs/RADIO.git
+- Imported: retraining-free-quantization from https://github.com/1hunters/retraining-free-quantization.git
+- Imported: CrossKD from https://github.com/jbwang1997/CrossKD.git
