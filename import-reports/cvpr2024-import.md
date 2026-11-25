@@ -18,3 +18,7 @@ Source code snapshots were shallow-cloned, no upstream code was executed.
 - Imported: RepViT from https://github.com/THU-MIG/RepViT.git
 - Imported: PPAL from https://github.com/ChenhongyiYang/PPAL.git
 - Imported: point2rbox-mmrotate from https://github.com/VisionXLab/point2rbox-mmrotate.git
+- Imported: SHViT from https://github.com/ysj9909/SHViT.git
+- Imported: FreeKD from https://github.com/Gumpest/FreeKD.git
+- Imported: RT-DETR from https://github.com/lyuwenyu/RT-DETR.git
+- Imported: HPR from https://github.com/ZhaoJingjing713/HPR.git
