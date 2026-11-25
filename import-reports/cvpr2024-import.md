@@ -22,3 +22,7 @@ Source code snapshots were shallow-cloned, no upstream code was executed.
 - Imported: FreeKD from https://github.com/Gumpest/FreeKD.git
 - Imported: RT-DETR from https://github.com/lyuwenyu/RT-DETR.git
 - Imported: HPR from https://github.com/ZhaoJingjing713/HPR.git
+- Imported: RobustSAM from https://github.com/robustsam/RobustSAM.git
+- Imported: coconut_cvpr2024 from https://github.com/bytedance/coconut_cvpr2024.git
+- Imported: DiverGen from https://github.com/aim-uofa/DiverGen.git
+- Imported: S4Former from https://github.com/JoyHuYY1412/S4Former.git

@@ -1,0 +1,10 @@
+.history/
+.history
+
+.vscode/
+.vscode
+
+.idea/
+.idea
+
+*.pyc
