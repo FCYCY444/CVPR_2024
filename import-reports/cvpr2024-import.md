@@ -30,3 +30,7 @@ Source code snapshots were shallow-cloned, no upstream code was executed.
 - Imported: SegNext from https://github.com/uncbiag/SegNext.git
 - Imported: VSCode from https://github.com/Sssssuperior/VSCode.git
 - Imported: U2Seg from https://github.com/u2seg/U2Seg.git
+- Imported: algm-segmenter from https://github.com/tue-mps/algm-segmenter.git
+- Imported: AllSpark from https://github.com/xmed-lab/AllSpark.git
+- Imported: InSeg from https://github.com/why19991/InSeg.git
+- Imported: DDFP from https://github.com/Gavinwxy/DDFP.git
