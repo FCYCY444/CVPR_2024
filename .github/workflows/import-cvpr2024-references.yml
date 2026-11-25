@@ -1,0 +1,88 @@
+name: Import licensed CVPR 2024 reference source snapshots
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/import-cvpr2024-references.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cvpr-2024-reference-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - name: Check out reference collection
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: Import permitted upstream source without executing upstream code
+        shell: bash
+        env:
+          GIT_LFS_SKIP_SMUDGE: "1"
+          GIT_TERMINAL_PROMPT: "0"
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p import-reports
+          report="import-reports/cvpr2024-import.md"
+          printf '# CVPR 2024 reference repository import report\n\n' > "$report"
+          printf 'Source code snapshots were shallow-cloned, no upstream code was executed.\n\n' >> "$report"
+          copied=0
+          failures=0
+          batch=0
+          batchno=0
+          while IFS='|' read -r folder url; do
+            [ -n "$folder" ] || continue
+            echo "::group::Import $folder"
+            tmp="$(mktemp -d)"
+            if git -c core.hooksPath=/dev/null clone --quiet --depth 1 --single-branch --filter=blob:none "$url" "$tmp/upstream"; then
+              if find "$tmp/upstream" -maxdepth 1 -type f | grep -Eiq '/(LICENSE|LICENCE|COPYING)(\..*)?$'; then
+                rm -rf "$tmp/upstream/.git"
+                find "$tmp/upstream" -type f -size +95M -print | while IFS= read -r file; do
+                  echo "- Omitted oversized file (>95 MiB): $folder/$(basename "$file")" >> "$report"
+                  rm -f "$file"
+                done
+                mkdir -p "$folder"
+                cp -a "$tmp/upstream/." "$folder/"
+                git add -- "$folder"
+                echo "- Imported: $folder from $url" >> "$report"
+                copied=$((copied + 1))
+              else
+                echo "- Skipped (no top-level license file): $folder from $url" >> "$report"
+                failures=$((failures + 1))
+              fi
+            else
+              echo "- Failed clone: $folder from $url" >> "$report"
+              failures=$((failures + 1))
+            fi
+            rm -rf "$tmp"
+            echo "::endgroup::"
+            batch=$((batch + 1))
+            if [ "$batch" -ge 4 ]; then
+              batchno=$((batchno + 1))
+              git add -- "$report"
+              if ! git diff --cached --quiet; then
+                git commit -m "Import licensed CVPR 2024 reference batch $batchno"
+                git push origin HEAD:main
+              fi
+              batch=0
+            fi
+          done < .github/import-cvpr2024-sources.tsv
+          printf '\nExcluded from source mirroring: 23 repositories without a verified redistribution license, plus EMCAD (UT Austin restrictions) and SAS-Det (NEC no-redistribution terms). See projects.csv.\n' >> "$report"
+          printf '\nLicense notes: RADIO is NVIDIA non-commercial research/evaluation only; CrossKD is CC BY-NC 4.0; CutLER is CC BY-NC-SA 4.0; mavrec-code is CC BY 4.0.\n' >> "$report"
+          printf '\nGit LFS objects, git submodules, external weights, and omitted oversized files may not be included.\n' >> "$report"
+          git add -- "$report"
+          if ! git diff --cached --quiet; then
+            git commit -m "Finalize CVPR 2024 import report"
+            git push origin HEAD:main
+          fi
+          echo "Successful imports: $copied; failures or missing licenses: $failures"
+          if [ "$failures" -gt 0 ]; then
+            exit 1
+          fi
