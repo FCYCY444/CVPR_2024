@@ -1,0 +1,11 @@
+# CAM-Back-Again
+
+- **原始 GitHub 项目：** https://github.com/snskysk/CAM-Back-Again
+- **对应论文：** CAM Back Again: Large Kernel CNNs from a Weakly Supervised Object Localization Perspective
+- **研究方向：** 叶面斑块
+- **项目与论文关系：** 作者项目及训练代码
+- **当前许可证核查：** 仓库级许可待核实
+- **优先阅读：** 仓库使用说明
+- **项目保存状态：** 仅记录原始链接，未重新发布源码
+
+本目录不是 GitHub 原生 Fork。所有著作权和原始许可条件以原作者文件为准。
