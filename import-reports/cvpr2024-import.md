@@ -26,3 +26,7 @@ Source code snapshots were shallow-cloned, no upstream code was executed.
 - Imported: coconut_cvpr2024 from https://github.com/bytedance/coconut_cvpr2024.git
 - Imported: DiverGen from https://github.com/aim-uofa/DiverGen.git
 - Imported: S4Former from https://github.com/JoyHuYY1412/S4Former.git
+- Imported: MFP from https://github.com/cwlee00/MFP.git
+- Imported: SegNext from https://github.com/uncbiag/SegNext.git
+- Imported: VSCode from https://github.com/Sssssuperior/VSCode.git
+- Imported: U2Seg from https://github.com/u2seg/U2Seg.git
